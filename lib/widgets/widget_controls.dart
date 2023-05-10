@@ -10,6 +10,10 @@ class WidgetControls extends StatefulWidget {
 }
 
 class _WidgetControlsState extends State<WidgetControls> {
+  bool relayOneActivated = false;
+  bool relayTwoActivated = false;
+  bool relayThreeActivated = false;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -29,13 +33,33 @@ class _WidgetControlsState extends State<WidgetControls> {
             ),
           ),
           const SizedBox(height: 20.0),
-          DeviceWidget(),
-          DeviceWidget(),
-          DeviceWidget(),
-          DeviceWidget(),
-          DeviceWidget(),
-          DeviceWidget(),
-          const SizedBox(height: 20.0),
+          DeviceWidget(
+            label: "Relay 1",
+            isActivated: relayOneActivated,
+            onActivatedChanged: (activated) {
+              setState(() {
+                relayOneActivated = activated;
+              });
+            },
+          ),
+          DeviceWidget(
+            label: "Relay 2",
+            isActivated: relayTwoActivated,
+            onActivatedChanged: (activated) {
+              setState(() {
+                relayTwoActivated = activated;
+              });
+            },
+          ),
+          DeviceWidget(
+            label: "Relay 3",
+            isActivated: relayThreeActivated,
+            onActivatedChanged: (activated) {
+              setState(() {
+                relayThreeActivated = activated;
+              });
+            },
+          ),
         ],
       ),
     );

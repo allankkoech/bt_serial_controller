@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 
-class DeviceWidget extends StatefulWidget {
-  const DeviceWidget({Key? key}) : super(key: key);
+class DeviceWidget extends StatelessWidget {
+  DeviceWidget(
+      {Key? key,
+      required this.label,
+      required this.isActivated,
+      required this.onActivatedChanged})
+      : super(key: key);
 
-  @override
-  _DeviceWidgetState createState() => _DeviceWidgetState();
-}
-
-class _DeviceWidgetState extends State<DeviceWidget> {
-  bool isActivated = false;
-  final label = "Task ABC 234";
+  final label;
+  final isActivated;
+  Function onActivatedChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -39,12 +40,11 @@ class _DeviceWidgetState extends State<DeviceWidget> {
               const SizedBox(width: 20.0),
               Expanded(child: Text(label)),
               Switch(
-                  value: isActivated,
-                  onChanged: (activated) {
-                    setState(() {
-                      isActivated = activated;
-                    });
-                  }),
+                value: isActivated,
+                onChanged: (activated) {
+                  onActivatedChanged(activated);
+                },
+              ),
               const SizedBox(width: 20.0),
             ],
           ),

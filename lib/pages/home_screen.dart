@@ -1,30 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:voltage_controller_bt/widgets/controls/chart_widget.dart';
 import 'package:voltage_controller_bt/widgets/home_topbar.dart';
 import 'package:voltage_controller_bt/widgets/widget_controls.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({Key? key}) : super(key: key);
+  HomeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Colors.white70,
+        color: Colors.grey[100],
         child: Column(
-          children: [
+          children: const [
             // Menus
-            const HomeTopbar(),
+            HomeTopbar(),
             // Quick controls ...
             WidgetControls(),
             // Charts
-            Expanded(
-              child: Container(
-                color: Colors.blue,
-                child: const Center(
-                  child: Text("Voltage Charts ..."),
-                ),
-              ),
-            ),
+            ChartWidget(),
           ],
         ),
       ),

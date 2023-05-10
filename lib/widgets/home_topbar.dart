@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:voltage_controller_bt/pages/bluetooth_screen.dart';
+import 'package:voltage_controller_bt/pages/settings_screen.dart';
+import 'package:voltage_controller_bt/pages/terminal_screen.dart';
 
 class HomeTopbar extends StatelessWidget {
   const HomeTopbar({Key? key}) : super(key: key);
@@ -31,15 +34,25 @@ class HomeTopbar extends StatelessWidget {
               "Connected",
               style: TextStyle(color: Colors.green),
             ),
+            const SizedBox(width: 10.0),
             IconButton(
               onPressed: () {
-                debugPrint("Hello");
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const TerminalScreen()));
+              },
+              icon: const Icon(Icons.terminal),
+            ),
+            IconButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const BluetoothScreen()));
               },
               icon: const Icon(Icons.bluetooth),
             ),
             IconButton(
               onPressed: () {
-                debugPrint("Settings");
+                Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => const SettingsScreen()));
               },
               icon: const Icon(Icons.settings),
             ),

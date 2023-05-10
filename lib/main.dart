@@ -24,7 +24,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: appLoaded ? const HomeScreen() : const OnboardingScreen(),
+      home: appLoaded ? HomeScreen() : const OnboardingScreen(),
     );
   }
 }
